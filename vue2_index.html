@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vue2_style.css">
+    <script src="vue.global.js"></script>
+    <title>Vue 2 лаба</title>
+</head>
+<body>
+    <div id="lvl">
+        <h1 style="background-color: rgb(104, 253, 111);">Задание 1</h1>
+        <post
+            v-for="(user) in users"
+            v-bind:="user">
+        </post>
+    </div>
+    <div id="app">
+        <h1 style="background-color: rgb(104, 253, 111);">Задание 2</h1>
+		<div class="menu">
+			<ul>
+				<li v-for="pageName in pages">
+					<button :class="['tab-button', { active: currentTab === pageName }]" v-text="pageName" v-on:click="currentTab = pageName"></button>
+				</li>
+			</ul>
+		</div>
+        <br>
+		<component :is="currentTabComponent"></component>
+	</div>
+    <div id="que">
+        <h1 style="background-color: rgb(104, 253, 111);">Задание 3</h1>
+        <test
+            v-for="(item, index) in data"
+            v-bind:question="item.question"
+            v-bind:answers="item.answers"
+            v-bind:right="item.right"
+            v-bind:pick="item.pick"
+            v-bind:key="index"
+        >
+        </test>
+    </div>
+    <script src="vue2_script.js"></script>
+</body>
+</html>
